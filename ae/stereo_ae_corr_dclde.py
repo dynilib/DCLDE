@@ -239,7 +239,7 @@ with graph.as_default():
         tf.global_variables_initializer().run()
         print('Initialized')
         df = np.load('train.npy')
-		df_valid = np.load('track9.npy')
+        df_valid = np.load('track9.npy')
         fig, (ax1, ax2, ax3, ax4) = plt.subplots(4,sharex=True)
         plt.show(block=False)
         for epoch in range(num_epoch):
