@@ -185,6 +185,7 @@ with graph.as_default():
                    
                 batch_noise = np.random.normal(0,0.025,batch_data.shape)
                 batch_data = batch_data / np.sqrt(np.clip(np.square(batch_data).sum((1, 2), keepdims=True), 1e-15, np.infty))
+                batch_data[:,1] = batch_data[:,0]
                 feed_dict = {tf_train_dataset: batch_data,
                              tf_train_noise: batch_noise}
                 _, l, lr, learn, predictions, embed, summary = session.run(
@@ -221,6 +222,7 @@ with graph.as_default():
 					
                 batch_noise = np.random.normal(0,0.025,batch_data.shape)
                 batch_data = batch_data / np.sqrt(np.clip(np.square(batch_data).sum((1, 2), keepdims=True), 1e-15, np.infty))
+                batch_data[:,1] = batch_data[:,0]
                 feed_dict = {tf_train_dataset: batch_data,
                              tf_train_noise: batch_noise}
                 l = session.run(loss, feed_dict=feed_dict)

@@ -23,6 +23,9 @@ sample_rate = 50000
 num_epoch = 160
 batch_size = 64
 
+train_size = 7340
+
+
 train_set = np.arange(7340)
 valid_set = np.arange(3589)
 
