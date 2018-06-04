@@ -258,8 +258,8 @@ with graph.as_default():
                 batch_data = batch_data / np.sqrt(np.clip(np.square(batch_data).sum((1, 2), keepdims=True), 1e-15, np.infty))
                 feed_dict = {tf_train_dataset: batch_data,
                              tf_train_noise: batch_noise}
-                _, l, lr, lg, learn, predictions, embed, esti, summary = session.run(
-                    [optimizer,loss, loss_rec, loss_reg, learning_rate, predict, z, estimate, merged], feed_dict=feed_dict)
+                _, l, lr, lg, learn, predictions, embed, summary = session.run(
+                    [optimizer,loss, loss_rec, loss_reg, learning_rate, predict, z, merged], feed_dict=feed_dict)
 
                 ml += l
                 mlr += lr
